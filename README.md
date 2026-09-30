@@ -1,3 +1,28 @@
+# Claude Animation Base（Noah-Wu0 fork）
+
+> **本仓用途**：坤哥后续动画工单的专用项目库。上游：[JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)（fork，保留 `upstream` remote）。当前对齐 upstream commit：`0ac8bf2`。
+
+## 后续动画工单怎么挂这个仓
+
+1. Linear 开票（团队 **Noah_Wu**），写清时长/分镜/验收。
+2. Clone 本仓：`gh repo clone Noah-Wu0/claude-animation-base`
+3. 让 coding agent 先读 [ANIMATION_GUIDE.md](ANIMATION_GUIDE.md)，场景写在 `src/scenes/`。
+4. 本地验收：`npm install` → `node render.mjs --clip --out=out/video.mp4`（无 GPU Linux 加 `--soft-gl`）。
+5. 打开 `studio.html` 预览；成片在 `out/`。
+
+### 本机快速启动
+
+```bash
+npm install
+node render.mjs --clip --out=out/video.mp4 --soft-gl   # headless / 无 GPU
+# 或有 GPU：
+# node render.mjs --clip --out=out/video.mp4
+```
+
+需要：Node.js、Google Chrome、ffmpeg。
+
+---
+
 # Claude Animation Base
 
 This is a small starter kit with code, instructions and assets for animating a character in [p5.js](https://p5js.org) and [p5.brush](https://github.com/acamposuribe/p5.brush) with Claude Opus 5.5. It's based on the code from the music video [I'm Upping My P(doom)](https://github.com/JohnHeibel/PDoomVideo) and an analysis of what the model did and didn't do well. I highly recommend playing around with your prompting: make it give you the storyboard before coding, give it very broad instructions, try being very specific, ask for subagents, and try a bunch of other fun ways of testing the model's capabilities. In my testing, it can do a lot with very little, but it's also quite accurate when you give it more requirements. Also try asking the model to swap out the character or make new emotions or costumes, give it your own reference images, and try many other fun things like that. I've found that the reasoning level corresponds to how "extravagant" and detail-oriented the model makes the scene. All test videos were generated with Opus 5.5 on xhigh reasoning in Claude Code.
